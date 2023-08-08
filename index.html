@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>javascript: calculate</title>
+<style>
+      div {
+        margin-bottom: 20px;
+      }
+      label {
+        display: inline-block;
+        width: 100px;
+        text-align: right;
+        
+      }
+    </style>
+<meta charset="windows-1252">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+
+function calc()
+   {
+            
+      let n1 = parseFloat(document.getElementById("n1").value); 
+	  let n2 = parseFloat(document.getElementById("n2").value);
+	  let op = document.getElementById("operations").value;
+      let op2 = document.getElementById("operation").value;  
+
+              
+      if(op == 11)
+      {
+        n1 = n1*0.00006309;
+      }
+      if(op == 12)
+      {
+        n1 = n1;
+      }
+      if(op == 13)
+      {
+        n3 = n1*1.2009499;
+        n1 = n3*0.00006309;
+      }
+            
+      if(op2 == 21)
+      {
+        n2 = n2*0.0254;
+      }
+      if(op2 == 22)
+      {
+        n2 = n2*0.001;
+      }
+      if(op2 == 23)
+      {
+        n2 = n2;
+      }
+          
+      let n5 = 4 * n1;
+	  let n6 = 3.1416 * n2 * n2;
+	  
+	  if ( n6 === 0 ) 
+	   {
+	   alert('Diameter Cannot be Zero!');
+	   return false; // do not submit
+       }
+	   else
+	   { 
+	  
+      let z = n5 / n6;  
+	  let a = z * 2.237;
+	  
+	  
+	  document.getElementById("result").value = z;	 
+      document.getElementById("result2").value = a;	 	  
+	  return false;    
+	  
+	  }
+ 
+	  	  
+  }   
+</script>
+</head>
+<body style="background-color:#5F9EA0";>
+
+<h1><i><u>Flow Velocity Calculator</u></i></h1>
+<form onsubmit="return false">
+  <div>
+        <label>Flow Rate (Q):</label>
+        <input id="n1" size="8" align="right"  required />
+        <select id="operations">
+            <option value="11">US Gallon/min</option>
+            <option value="12">Cubic Meters/s</option>
+            <option value="13">Imperial Galllon/min</option>
+         </select>
+   </div>
+      
+   <div>
+        <label>Diameter (D):</label>
+        <input id="n2" size="8" align="right" required />
+        <select id="operation">
+                             <option value="21">Inch</option>
+                             <option value="22">mm</option>
+                             <option value="23">Meters</option>
+        </select>
+    </div>
+    <br>
+    <button style="position: absolute; left: 20%; transform: translateX(-40%);" onclick="calc();">Submit</button>
+    <br>
+    <br>
+    <br>
+    <div>  
+		<label>Velocity(V):</label>
+		<input id="result" size="8" readonly>m/s
+    </div>
+	    <label></label>
+		<input id="result2" size="8" readonly>Miles/hr
+     </div>
+        
+     
+</form>
+</body>
+</html>
